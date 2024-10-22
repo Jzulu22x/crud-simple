@@ -4,7 +4,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/allCategories', [CategoryController::class, 'index']);
+Route::resource('categories', CategoryController::class);
+Route::get('/allCategories', [CategoryController::class, 'index'])->name('allCategories');
+Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+Route::patch('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
 Route::get('/', function () {
     return view('welcome');
 });
