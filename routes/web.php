@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/allCategories', [CategoryController::class, 'index']);
 Route::get('/', function () {
     return view('welcome');
 });
